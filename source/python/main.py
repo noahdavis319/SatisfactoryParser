@@ -2,6 +2,7 @@
 # Pulls recipes information down from Satisfactory gamepedia page.
 # Uses known list of items to pull down. Currently only pulls component items.
 
+import json
 import requests
 from bs4 import BeautifulSoup
 
@@ -10,6 +11,8 @@ INGREDIENT_STYLE = 'border:0; line-height:1; padding:0.5em'
 
 
 def parse():
+    json_data = {}
+
     with open('../resources/components.txt', 'r') as f:
         components = f.readlines()
         for component in components:
@@ -42,18 +45,10 @@ def parse():
                         else:
                             building_start_index = i
                             break
-                    for ingredient in ingredients:
-                        divs = ingredient.find_all('div')
-                        ingredient_text = '{0} @ {1}'.format(divs[0].text, divs[3].text)
-                        if ingredients_text == '':
-                            ingredients_text = ingredient_text
-                        else:
-                            ingredients_text = '{0} and {1}'.format(ingredients_text, ingredient_text)
 
                     # recipe building
                     building = recipe_td[building_start_index].find('span').text
                     building_time_text = recipe_td[building_start_index].find(text=True, recursive=False)
-                    building_text = '{0} @ {1}'.format(building, building_time_text)
 
                     # products
                     products_text = ''
@@ -65,15 +60,33 @@ def parse():
                                 products.append(recipe_td[i])
                         else:
                             break
+
+                    # add to json table
+                    json_data[recipe_name] = {}
+
+                    json_data[recipe_name]['ingredients'] = {}
+                    for ingredient in ingredients:
+                        divs = ingredient.find_all('div')
+                        parts_zero = divs[0].text.split('\u00d7')
+                        ingredient_name = parts_zero[1].strip()
+                        json_data[recipe_name]['ingredients'][ingredient_name] = {}
+                        json_data[recipe_name]['ingredients'][ingredient_name]['amount'] = parts_zero[0].strip()
+                        json_data[recipe_name]['ingredients'][ingredient_name]['rate'] = divs[3].text.split('/')[0].strip()
+
+                    json_data[recipe_name]['building'] = {}
+                    json_data[recipe_name]['building']['type'] = building
+                    json_data[recipe_name]['building']['time'] = building_time_text
+
+                    json_data[recipe_name]['products'] = {}
                     for product in products:
                         divs = product.find_all('div')
-                        product_text = '{0} @ {1}'.format(divs[0].text, divs[3].text)
-                        if products_text == '':
-                            products_text = product_text
-                        else:
-                            products_text = '{0} and {1}'.format(products_text, product_text)
+                        parts_zero = divs[0].text.split('\u00d7')
+                        product_name = parts_zero[1].strip()
+                        json_data[recipe_name]['products'][product_name] = {}
+                        json_data[recipe_name]['products'][product_name]['amount'] = parts_zero[0].strip()
+                        json_data[recipe_name]['products'][product_name]['rate'] = divs[3].text.split('/')[0].strip()
 
-                    print('{0}: {1} in {2} per {3}'.format(recipe_name, ingredients_text, building_text, products_text))
+    print(json.dumps(json_data, sort_keys=True, indent=4))
 
 
 if __name__ == "__main__":
