@@ -10,6 +10,7 @@ This project requires `requests` and `beautifulsoup4`. Ideally install them into
 Run the `main.py` script which prints relevant information to standard out.
 
 # Example
+```json
 {  
     "A.I. Limiter": {  
         "building": {  
@@ -54,4 +55,5 @@ Run the `main.py` script which prints relevant information to standard out.
                 "rate": "1"  
             }  
         }  
-    },  
+    },
+```
