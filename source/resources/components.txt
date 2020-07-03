@@ -63,5 +63,3 @@ Silica
 Crystal Oscillator
 Radio Control Unit
 Supercomputer
-Turbo Fuel
-Packaged Turbo Fuel
