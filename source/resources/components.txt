@@ -1,0 +1,67 @@
+Biomass
+Cable
+Concrete
+Copper Ingot
+Iron Ingot
+Iron Plate
+Iron Rod
+Reinforced Iron Plate
+Screw
+Wire
+Copper Sheet
+Solid Biofuel
+Modular Frame
+Rotor
+Smart Plating
+Steel Beam
+Steel Ingot
+Steel Pipe
+Versatile Framework
+Automated Wiring
+Encased Industrial Beam
+Heavy Modular Frame
+Motor
+Stator
+Adaptive Control Unit
+Circuit Board
+Computer
+Empty Canister
+Fuel
+Packaged Fuel
+Heavy Oil Residue
+Packaged Heavy Oil Residue
+Liquid Biofuel
+Packaged Liquid Biofuel
+Modular Engine
+Petroleum Coke
+Plastic
+Polymer Resin
+Rubber
+Alumina Solution
+Alclad Aluminum Sheet
+Aluminum Ingot
+Aluminum Scrap
+Battery
+Electromagnetic Control Rod
+Encased Uranium Cell
+Heat Sink
+Nuclear Fuel Rod
+Nuclear Waste
+Sulfuric Acid
+Turbo Motor
+Uranium Pellet
+A.I. Limiter
+Black Powder
+Caterium Ingot
+Compacted Coal
+Fabric
+High-Speed Connector
+Quickwire
+Power Shard
+Quartz Crystal
+Silica
+Crystal Oscillator
+Radio Control Unit
+Supercomputer
+Turbo Fuel
+Packaged Turbo Fuel
