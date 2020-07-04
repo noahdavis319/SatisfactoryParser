@@ -63,3 +63,17 @@ Silica
 Crystal Oscillator
 Radio Control Unit
 Supercomputer
+Bauxite
+Caterium Ore
+Coal
+Copper Ore
+Crude Oil
+Packaged Oil
+Iron Ore
+Limestone
+Raw Quartz
+S.A.M. Ore
+Sulfur
+Uranium
+Water
+Packaged Water
